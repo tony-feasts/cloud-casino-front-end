@@ -15,8 +15,11 @@ function App() {
   const lambdaClient = new LambdaClient({
     region: 'us-east-2', // Replace with your Lambda's region
     credentials: {
-      accessKeyId: 'AKIA3RYC544ZXENTL6UR', // Replace with your AWS Access Key
-      secretAccessKey: 'l/qAWZ5yj7FPCqS4eM3mLWjJPeMAUkrL9G7EsZn9', // Replace with your AWS Secret Key
+      // here below put the AWS access key ID and the secret access key using your
+      // free tier account
+      // and with that account, create the lambda client to try it out
+      // accessKeyId: , // Replace with your AWS Access Key
+      // secretAccessKey: , // Replace with your AWS Secret Key
     },
   });
 
