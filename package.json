@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-lambda": "^3.699.0",
     "@react-oauth/google": "^0.12.1",
+    "buffer": "^6.0.3",
     "cra-template": "1.2.0",
     "jwt-decode": "^4.0.0",
     "react": "^18.0.0",
