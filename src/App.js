@@ -3,18 +3,17 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { gql, useQuery } from "@apollo/client";
 
 
-const GET_DETAILS = gql`
-    query GetDetails {
-        players {
-            username
-        }
-    }
+const GET_PLAYER_STATS = gql`
+  query {
+    playerCount
+    usernameWithHighestGameId
+  }
 `;
 
 function App() {
   const [showUsernamePrompt, setShowUsernamePrompt] = useState(false);
   const [username, setUsername] = useState('');
-  const { loading, error, data } = useQuery(GET_DETAILS);
+  const { loading, error, data } = useQuery(GET_PLAYER_STATS);
   const googleLogin = useGoogleLogin({
     onSuccess: async (credentialResponse) => {
       console.log("Full credential response:", credentialResponse);
@@ -40,10 +39,10 @@ function App() {
   };
 
   return (
-      <div style={{padding: '20px'}}>
+      <div style={{padding: '20px', 'textAlign': 'center', }}>
         <h1>Online Casino</h1>
-        <div style={{padding: '20px'}}>
-          {!error && !loading ? <span>Welcome! We have {{data}&&data.players.length} new players.</span>:''}
+        <div style={{padding: '20px', marginBottom: '26px'}}>
+          {!error && !loading ? <span>Welcome! We have {{data}&&data.playerCount} new players. {{data}&&data.usernameWithHighestGameId} won the last game.</span>:''}
         </div>
 
         <button onClick={handleSignUpClick}>Sign Up</button>
